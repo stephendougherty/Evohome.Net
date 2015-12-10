@@ -4,15 +4,18 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8922E074-7F15-4A48-A1FD-75ED002EA095}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{59287352-0FFC-460B-8FDE-814F37103F20}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Evohome.Lib</RootNamespace>
-    <AssemblyName>Evohome.Lib</AssemblyName>
+    <RootNamespace>Evohome.Console</RootNamespace>
+    <AssemblyName>Evohome.Console</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +25,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Evohome.Lib">
+      <HintPath>..\EvoHome.Lib\bin\Debug\Evohome.Lib.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
       <Private>True</Private>
@@ -42,14 +49,9 @@
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,42 +60,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\AccountInfo.cs" />
-    <Compile Include="Model\ActiveFault.cs" />
-    <Compile Include="Model\AllowedSystemMode.cs" />
-    <Compile Include="Controller.cs" />
-    <Compile Include="Model\DailySchedule.cs" />
-    <Compile Include="Model\Write\DailyScheduleWrite.cs" />
-    <Compile Include="Model\DHWStateCapabilities.cs" />
-    <Compile Include="Model\DHWStatus.cs" />
-    <Compile Include="Model\Gateway.cs" />
-    <Compile Include="Model\GatewayInfo.cs" />
-    <Compile Include="Model\GatewayStatus.cs" />
-    <Compile Include="Model\HeatSetpointCapabilities.cs" />
-    <Compile Include="Model\HeatSetpointStatus.cs" />
-    <Compile Include="Model\HotWater.cs" />
-    <Compile Include="Model\Location.cs" />
-    <Compile Include="Model\LocationInfo.cs" />
-    <Compile Include="Model\LocationOwner.cs" />
-    <Compile Include="Model\LocationStatus.cs" />
-    <Compile Include="Model\LoginResult.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Model\ScheduleCapabilities.cs" />
-    <Compile Include="Model\ScheduleSet.cs" />
-    <Compile Include="Model\Write\ScheduleSetWrite.cs" />
-    <Compile Include="Model\StateStatus.cs" />
-    <Compile Include="Model\Switchpoint.cs" />
-    <Compile Include="Model\Write\SwitchpointWrite.cs" />
-    <Compile Include="Model\SystemModeStatus.cs" />
-    <Compile Include="Model\TemperatureControlSystem.cs" />
-    <Compile Include="Model\TemperatureControlSystemStatus.cs" />
-    <Compile Include="Model\Write\TemperatureSet.cs" />
-    <Compile Include="Model\TemperatureStatus.cs" />
-    <Compile Include="Model\TimeZone.cs" />
-    <Compile Include="Model\Zone.cs" />
-    <Compile Include="Model\ZoneStatus.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

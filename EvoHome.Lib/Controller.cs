@@ -76,10 +76,18 @@ namespace Evohome.Lib
 
                 client.DefaultRequestHeaders.Add("Authorization", "Basic YjAxM2FhMjYtOTcyNC00ZGJkLTg4OTctMDQ4YjlhYWRhMjQ5OnRlc3Q=");
                 client.DefaultRequestHeaders.Add("Accept", "application/json, application/xml, text/json, text/x-json, text/javascript, text/xml");
-                var response = await client.PostAsync(url, content);
-
-                var responseString = await response.Content.ReadAsStringAsync();
-                LoginData = JsonConvert.DeserializeObject<LoginResult>(responseString);
+                try
+                {
+                    var response = await client.PostAsync(url, content);
+                    var responseString = await response.Content.ReadAsStringAsync();
+                    LoginData = JsonConvert.DeserializeObject<LoginResult>(responseString);
+                }
+                catch (System.AggregateException ex)
+                {
+                    System.Console.WriteLine(ex.StackTrace.ToString());
+                   
+                }
+                
             }
         }
 
